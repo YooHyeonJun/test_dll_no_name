@@ -1,4 +1,4 @@
-﻿# PE export experiments
+# PE export experiments
 
 Windows x86 DLL experiments comparing named and ordinal-only exports, with a deliberately empty EAT slot. DLLs are built this way by the linker; no binary fields are patched afterward.
 
@@ -47,4 +47,19 @@ Inspect the export directory to distinguish an absent export name from an import
 
 File offsets and RVAs depend on the build. This repository does not yet test missing OriginalFirstThunk or malformed exports with names present but no name-ordinal mapping.
 
-Generated binaries and original book example files are excluded from version control.
+Loose generated binaries and original book example files are excluded from version control. The two test DLLs are distributed in the password-protected archive below.
+
+## Prebuilt x86 DLLs
+
+Download [test-dlls-x86.zip](test-dlls-x86.zip). Password: **`pe-test`**.
+
+The archive contains only `atom_named.dll` and `atom_ordinal.dll`, built from the sources in this repository. Extract both into the build directory to use them with `ordtest.exe` and `eat_probe.exe`. The EXE test tools can be built using `build.ps1`.
+
+The ZIP uses traditional ZipCrypto password protection for convenient test distribution, not strong confidentiality. Use 7-Zip or another compatible ZIP utility to extract it.
+
+SHA-256 checksums of the uncompressed DLLs:
+
+```text
+f2e7aa9b51556f49fc04ad9decf28b09b8435cb91ae33be04090061c97671073  atom_named.dll
+9bf15fab81f2a8673643f3196909983d42e09668d834a5c1138f3094db82b4b5  atom_ordinal.dll
+```
