@@ -1,0 +1,4 @@
+LIBRARY atom_named
+EXPORTS
+    Anchor=_TestAnchor@0 @1
+    AddAtomW=_TestAddAtomW@4 @3
